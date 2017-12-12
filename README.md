@@ -1,5 +1,5 @@
 # Pastie Like
-An Elixir 💧  Phoenix 🐦  Pastebin/Pastie-like Project to practice and learnt more about Elixir Language and Phoenix Framework.
+An Elixir 💧  Phoenix 🐦  Pastebin/Pastie-like Project to practice and learn more about Elixir Language and Phoenix Framework.
 
 #### Work In Progress
 
