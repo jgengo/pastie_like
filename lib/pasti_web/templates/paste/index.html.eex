@@ -1,0 +1,99 @@
+<% 
+user = if (@conn.assigns.user), do: @conn.assigns.user, else: nil
+admin = if (user && user.admin), do: true, else: false
+%>
+
+<div class="column">
+	<div class="content is-small">
+	<h6 class="title is-6 mt-20">Index</h6>
+	<hr class="style-two">
+	<table class='table is-hoverable is-striped is-fullwidth' id='paste_index'>
+		<thead>
+			<tr>
+				<th></th>
+				<th><p class="has-text-centered">posted</p></th>
+				<th><p class="has-text-centered">views</p></th>
+				<th><p class="has-text-centered">syntax</p></th>
+				<%= if admin do %>
+					<th><p class="has-text-centered">kind</p></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>
+					<%= if admin do %>
+						<a href="" class="delete is-small mr-15 color-red"></a>
+					<% end %>
+					<a href="#">sqksqjJDwddOx</a>
+				</th>
+				<td><p class="has-text-centered">5 mins ago</p></td>
+				<td><p class="has-text-centered">12</p></td>
+				<td><p class="has-text-centered">Ruby</p></td>
+				<%= if admin do %>
+					<td><p class="has-text-centered">Public</p></td>
+				<% end %>
+			</tr>
+			<tr>
+				<th>
+					<%= if admin do %>
+						<a href="" class="delete is-small mr-15 color-red"></a>
+					<% end %>
+					<a href="#">sqksqjJDwddOx</a>
+				</th>
+				<td><p class="has-text-centered">5 mins ago</p></td>
+				<td><p class="has-text-centered">12</p></td>
+				<td><p class="has-text-centered">Ruby</p></td>
+				<%= if admin do %>
+					<td><p class="has-text-centered">Public</p></td>
+				<% end %>
+			</tr>
+			<tr>
+				<th>
+					<%= if admin do %>
+						<a href="" class="delete is-small mr-15 color-red"></a>
+					<% end %>
+					<a href="#">sqksqjJDwddOx</a>
+				</th>
+				<td><p class="has-text-centered">5 mins ago</p></td>
+				<td><p class="has-text-centered">12</p></td>
+				<td><p class="has-text-centered">Ruby</p></td>
+				<%= if admin do %>
+					<td><p class="has-text-centered">Public</p></td>
+				<% end %>
+			</tr>
+			<tr>
+				<th>
+					<%= if admin do %>
+						<a href="" class="delete is-small mr-15 color-red"></a>
+					<% end %>
+					<a href="#">sqksqjJDwddOx</a>
+				</th>
+				<td><p class="has-text-centered">5 mins ago</p></td>
+				<td><p class="has-text-centered">12</p></td>
+				<td><p class="has-text-centered">Ruby</p></td>
+				<%= if admin do %>
+					<td><p class="has-text-centered">Public</p></td>
+				<% end %>
+			</tr>
+			<tr>
+				<th>
+					<%= if admin do %>
+						<a href="" class="delete is-small mr-15 color-red"></a>
+					<% end %>
+					<a href="#">sqksqjJDwddOx</a>
+				</th>
+				<td><p class="has-text-centered">5 mins ago</p></td>
+				<td><p class="has-text-centered">12</p></td>
+				<td><p class="has-text-centered">Ruby</p></td>
+				<%= if admin do %>
+					<td><p class="has-text-centered">Public</p></td>
+				<% end %>
+			</tr>
+		<%= for paste <- @pastes do %>
+			
+		<% end %>
+		</tbody>
+	</table>
+	</div>
+</div>

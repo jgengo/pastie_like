@@ -1,0 +1,106 @@
+<div class="columns">
+	
+	<div class="column is-three-quarters">
+		<h6 class="title is-6 mt-20">New Paste</h6>
+		<hr class="style-two">
+		<%= form_for @changeset, paste_path(@conn, :create), fn f -> %>
+			<%= textarea f, :file, class: "textarea is-small", rows: "14" %>
+		
+			<div class="columns">
+				<div class="column is-half">
+					<h6 class="title is-6 mt-20">Optional Paste Settings</h6>
+					<hr class="style-two">
+					
+					<div class="field">
+						<label class="label is-small">Syntax Highlighting:</label>
+						<div class="control">
+							<div class="select is-small is-fullwidth">
+                <%= select f, :extension, ["None": 1, "Ruby": 2, "C": 3, "Python": 4] %>
+    
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<label class="label is-small">Paste Expiration:</label>
+						<div class="control">
+							<div class="select is-small is-fullwidth">
+								<%= select f, :expiration_at, ["Never": 1, "10 Minutes": 2, "1 Hour": 3, "1 Week": 4] %>
+
+    					</div>
+						</div>
+					</div>
+					<div class="field">
+						<label class="label is-small">Paste Exposure:</label>
+						<div class="control">
+							<div class="select is-small is-fullwidth">
+                <%= select f, :kind, ["Public": 1, "Unlisted": 2, "Private (with password)": 3] %>
+							</div>
+						</div>
+					</div>
+					
+					<div class="control pull-right">
+            <%= submit "Create New Paste", class: "button is-primary is-radiusless is-small" %>
+					</div>
+    <% end %>
+			</div>
+			<div class="column">
+				<h6 class="title is-6 mt-20">User Information</h6>
+				<hr class="style-two">
+				<div class="content is-small">
+
+          <%= if @conn.assigns.user do %>
+
+  					<div class="card" id='user'>
+             
+             <header class="card-header">
+              <p class="card-header-title is-centered"><%= @conn.assigns.user.pseudo %></p>
+             </header>
+             
+             <div class="card-content">
+               <div class="content">
+                 <table class='table is-hoverable is-striped'>
+                   <tr><th><p class="has-text-centered">134</p></th><td><p class="has-text-centered">Public Pastes</p></td></tr>
+                   <tr><th><p class="has-text-centered">43</p></th><td><p class="has-text-centered">Unlisted Pastes</p></td></tr>
+                   <tr><th><p class="has-text-centered">1</p></th><td><p class="has-text-centered">Private Pastes</p></td></tr>
+                   <tr><th><p class="has-text-centered">23</p></th><td><p class="has-text-centered">Expired Pastes</p></td></tr>
+                 </table>
+               </div>
+             </div>
+
+             <div class="card-footer">
+               <%= link "Log out", to: auth_path(@conn, :signout), class: "card-footer-item" %>
+             </div>
+
+            </div>
+          <% else %>
+            <blockquote class='login has-text-justified'>
+              You are not logged in. You can use
+              <%= link "GitHub", to: auth_path(@conn, :request, "github") %>
+              auth to load your related user information
+            </blockquote>
+          <% end %>
+				
+
+        </div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="column">
+		<h6 class="title is-6 mt-20">Public Pastes</h6>
+		<hr class="style-two">
+    <div class="content is-small" id="last_pastes">
+      <blockquote>Paste 1</blockquote>
+      <blockquote>Paste 2</blockquote>
+      <blockquote>Paste 3</blockquote>
+      <blockquote>Paste 4</blockquote>
+      <blockquote>Paste 5</blockquote>
+      <blockquote>Paste 1</blockquote>
+      <blockquote>Paste 2</blockquote>
+      <blockquote>Paste 3</blockquote>
+      <blockquote>Paste 4</blockquote>
+      <blockquote>Paste 5</blockquote>
+  		<p class="has-text-centered"><%= link "more", to: paste_path(@conn, :index) %></p>
+    </div>
+	</div>
+</div>

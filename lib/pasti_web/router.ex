@@ -7,20 +7,26 @@ defmodule PastiWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Pasti.Plugs.SetUser
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
+  scope "/auth", PastiWeb do
+    pipe_through :browser
+
+    get "/signout", AuthController, :signout
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
+
   scope "/", PastiWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", PasteController, :new
+    resources "/pastes", PasteController, only: [:index, :create]
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PastiWeb do
-  #   pipe_through :api
-  # end
 end

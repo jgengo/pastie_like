@@ -37,13 +37,16 @@ exports.config = {
   // Phoenix paths configuration
   paths: {
     // Dependencies and current project directories to watch
-    watched: ["static", "css", "js", "vendor"],
+    watched: ["static", "css", "js", "vendor", "scss"],
     // Where to compile files to
     public: "../priv/static"
   },
 
   // Configure your plugins
   plugins: {
+    sass: {
+      options: { includePaths: ['node_modules/bulma', "node_modules/toastr"] }
+    },
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/vendor/]
@@ -57,6 +60,13 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+    globals: {
+      $: 'jquery',
+      jQuery: 'jquery'
+    },
+    whitelist: [
+      "toastr"
+    ],
   }
 };

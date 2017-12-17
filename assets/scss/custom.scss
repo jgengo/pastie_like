@@ -1,0 +1,76 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
+$primary: darken($purple, 37);
+
+.navbar {
+	background-color: $primary;
+	.navbar-item > a {
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $white;
+		&:hover {
+			color: $white-ter;
+		}
+	}
+}
+
+.login {
+	&:hover {
+		border-color: $primary
+	}
+}
+
+.button.is-primary {
+	background-color: $primary;
+	&:hover {
+		background-color: darken($primary, 4);
+	}
+}
+
+.notification > button.delete {
+  border: none;
+}
+
+.is-hidden {
+  display: none;
+}
+
+
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0));
+    margin-top: -15px;
+    opacity: 0.4
+}
+
+h6.title {
+	text-transform: uppercase;
+	font-weight: bold;
+	color: darken($primary, 15);
+}
+
+#user 
+{
+	.card-header-title
+	{
+		margin: 0 auto;
+		text-transform: uppercase;
+		color: darken($primary, 10);
+	}
+	.card-content { padding: 0.2rem; }
+}
+.table { margin-bottom: 0rem; }
+
+#paste_index { thead > tr > th:first-child { width: 50%; } }
+.delete {
+	&.color-red { border-radius: 0px; background-color: lighten($red, 8); &:hover { background-color: $red; }}
+}
+#last_pastes
+{
+	blockquote { 
+		padding: 3px 0px 3px 10px;
+		margin-bottom: 5px;
+		&:hover { border-color: $primary; }
+	}
+}

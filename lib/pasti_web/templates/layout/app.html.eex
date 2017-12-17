@@ -7,23 +7,25 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Pasti!</title>
+    <title>Pasti | Easily Past Your Code</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+    <nav class="navbar is-fixed-top">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <a href="/">Pastie</a>
+        </div>
+      </div>
+    </nav>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+    <div class="container is-fluid">
+
+      <p class="alert alert-info is-hidden" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger is-hidden" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>

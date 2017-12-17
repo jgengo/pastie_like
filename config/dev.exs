@@ -51,8 +51,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :pasti, Pasti.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "pasti",
+  password: "",
   database: "pasti_dev",
   hostname: "localhost",
   pool_size: 10
